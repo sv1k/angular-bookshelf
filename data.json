@@ -1,0 +1,8 @@
+{
+  "users": [
+    { "name": "Blah", "age": 20, "gender": "male" },
+    { "name": "Sam", "age": 21, "gender": "male" },
+    { "name": "Bill", "age": 27, "gender": "male" },
+    { "name": "Jane", "age": 23, "gender": "female" }
+  ]
+}
