@@ -62,7 +62,7 @@
     usersRef.on("child_added", function(snapshot) {
       vm.users.push(snapshot.val());
 
-      if(!$scope.$$phase) $scope.$apply();
+      // if(!$scope.$$phase) $scope.$apply();
     });
   }
 })();

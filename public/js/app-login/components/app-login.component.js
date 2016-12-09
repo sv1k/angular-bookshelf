@@ -15,6 +15,8 @@
           </form>
           <p ng-show="$ctrl.error.isError">{{$ctrl.error.errorText}}</p>
         </div>
+        <br />
+        <a href="registration">Registration</a>
       `,
       controller: AppLoginController
     });
@@ -50,11 +52,7 @@
       if(!isValidPass) return;
 
       auth.
-        signInWithEmailAndPassword(vm.login, vm.password).
-        then(function() {
-          $location.path("/");
-          $scope.apply();
-        }).catch(function(e) {
+        signInWithEmailAndPassword(vm.login, vm.password).catch(function(e) {
           vm.error.setError(e.message);
         });
     }
