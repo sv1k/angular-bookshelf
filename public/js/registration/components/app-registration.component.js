@@ -14,7 +14,7 @@
             <input id="reg-email" type="email" ng-model="$ctrl.regEmail"/><br>
             <label for="reg-password">Password: </label>
             <input id="reg-password" type="password" ng-model="$ctrl.password"/><br>
-            <button>Login</button>
+            <button>Registration</button>
           </form>
           <p ng-show="$ctrl.error.isError">{{$ctrl.error.errorText}}</p>
         </div>

@@ -4,11 +4,14 @@
   angular.
     module("bookApp", [
       "ngRoute",
-      "appLogin"
+      "appLogin",
+      "appRegistration"
     ]).
-    config(AppConfig);
+    config(AppConfig).
+    run(appRun);
 
     AppConfig.$inject = ["$routeProvider", "$locationProvider"];
+    appRun.$inject = ["$location", "$timeout"];
 
     function AppConfig($routeProvider, $locationProvider) {
       var config = {
@@ -19,27 +22,32 @@
       };
       firebase.initializeApp(config);
 
-      firebase.auth().onAuthStateChanged(function(user) {
-        if(user) {
-          console.log("loged in");
-        }
-      })
-
       console.log($routeProvider);
       $routeProvider.
         when("/login", {
           template: "<app-login></app-login>"
         }).
+        when("/registration", {
+          template: "<app-registration></app-registration>"
+        }).
         when("/", {
-          template: "<a href='/login'>login</a>",
+          template: "<book-app></book-app>",
           controller: function() {
 
           }
         });
 
       $locationProvider.html5Mode(true);
+    }
 
-      
+    function appRun($location, $timeout) {
+      firebase.auth().onAuthStateChanged(function(user) {
+        if(user) {
+          $timeout(function() {
+            $location.path("/");
+          });
+        } else $location.path("/login");
+      });
     }
 
 })();
