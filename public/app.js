@@ -5,7 +5,8 @@
     module("bookApp", [
       "ngRoute",
       "appLogin",
-      "appRegistration"
+      "appRegistration",
+      "newBook"
     ]).
     config(AppConfig).
     run(appRun);
@@ -30,11 +31,11 @@
         when("/registration", {
           template: "<app-registration></app-registration>"
         }).
+        when("/new-book", {
+          template: "<new-book></new-book>"
+        }).
         when("/", {
-          template: "<book-app></book-app>",
-          controller: function() {
-
-          }
+          template: "<book-app></book-app>"
         });
 
       $locationProvider.html5Mode(true);

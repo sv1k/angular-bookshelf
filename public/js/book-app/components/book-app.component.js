@@ -5,6 +5,7 @@
     module("bookApp").
     component("bookApp", {
       template: `
+        <a href="new-book">Add new book</a><br>
         <input type="text" ng-model="$ctrl.newUserName"/>
         <button
           ng-click="$ctrl.createNewUser()">
@@ -59,10 +60,13 @@
       usersRef.push({ name });
     }
 
-    usersRef.on("child_added", function(snapshot) {
-      vm.users.push(snapshot.val());
+    usersRef.on("value", function(snapshot) {
+      // vm.users.push(snapshot.val());
+      snapshot.forEach(function(subSnap) {
+        vm.users.push(subSnap.val());
+      });
 
-      // if(!$scope.$$phase) $scope.$apply();
+      if(!$scope.$$phase) $scope.$apply();
     });
   }
 })();
