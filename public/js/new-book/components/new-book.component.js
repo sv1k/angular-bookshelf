@@ -18,7 +18,9 @@
             id="book-author"
             ng-model="$ctrl.bookAuthor"
             required/><br>
-          <image-uploader></image-uploader>
+          <image-uploader
+            create-cover="$ctrl.createCover(file)"
+          ></image-uploader>
           <label for="book-description">Description: </label>
           <textarea
             name="book-description"
@@ -34,6 +36,7 @@
 
   function newBookController() {
     let vm = this,
+        cover,
         bookRef = firebase.database().ref("Books");
 
     vm.bookTitle = "";
@@ -46,23 +49,34 @@
     function addNewBook(ev) {
       ev.preventDefault();
 
-      if(!vm.coverUrl) return;
+      if(!cover) return;
 
-      let book = {
-        title: vm.bookTitle,
-        author: vm.bookAuthor,
-        description: vm.bookDescription,
-        cover: vm.coverUrl,
-        rate: 0
-      };
+      let storage = firebase.storage().ref(),
+          filename = `book-covers/${Date.now()}-${cover.name}/`,
+          ref = storage.child(filename);
 
-      bookRef.push(book, function(err) {
-        if(err) console.error(err);
-      });
+        ref.
+          put(cover, { "ContentType": cover.type }).
+          then(function(e) {
+            console.log(e);
+            vm.coverUrl = filename;
+
+            let book = {
+              title: vm.bookTitle,
+              author: vm.bookAuthor,
+              description: vm.bookDescription,
+              cover: vm.coverUrl,
+              rate: 0
+            };
+
+            bookRef.push(book, function(err) {
+              if(err) console.error(err);
+            });
+          });
     }
 
-    function createCover(url) {
-      vm.coverUrl = url;
+    function createCover(file) {
+      cover = file;
     }
   }
 })();
