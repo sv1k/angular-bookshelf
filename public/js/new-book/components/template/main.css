@@ -1,0 +1,106 @@
+#new-book-form {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#new-book-form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+#new-book-form > div > div {
+  margin: 5px 0 10px;
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+
+#new-book-form label {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0 10px;
+}
+
+#new-book-form input {
+  padding: 0 5px 0 10px;
+  margin: 0;
+  height: 36px;
+  border: 2px solid #3e3;
+  width: 275px;
+}
+
+#new-book-form textarea {
+  resize: none;
+  height: 200px;
+  width: 294px;
+  box-sizing: border-box;
+  border: 2px solid #3e3;
+}
+
+#new-book-form label {
+  height: 40px;
+  line-height: 40px;
+}
+
+#new-book-form [for="book-description"] {
+  width: 100px;
+}
+
+image-uploader {
+  width: 400px;
+  height: 325px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#dnd-container {
+  width: 200px;
+  height: 250px;
+  border: 2px dashed #333;
+  margin: 5px 0 0;
+}
+
+#new-book-form label[for="book-cover-select"] {
+  display: block;
+  width: 150px;
+  background: tomato;
+  color: white;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#new-book-form input[type="file"] {
+  display: none;
+  position: absolute;
+  top: -100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

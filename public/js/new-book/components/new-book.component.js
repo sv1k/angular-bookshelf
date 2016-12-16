@@ -4,33 +4,7 @@
   angular.
     module("newBook").
     component("newBook", {
-      template: `
-        <form action="/" ng-submit="$ctrl.addNewBook($event)">
-          <label for="book-title">Title: </label>
-          <input
-            type="text"
-            id="book-title"
-            ng-model="$ctrl.bookTitle"
-            required/><br>
-          <label for="book-author">Author: </label>
-          <input
-            type="text"
-            id="book-author"
-            ng-model="$ctrl.bookAuthor"
-            required/><br>
-          <image-uploader
-            create-cover="$ctrl.createCover(file)"
-          ></image-uploader>
-          <label for="book-description">Description: </label>
-          <textarea
-            name="book-description"
-            id="book-description"
-            cols="30" rows="10"
-            ng-model="$ctrl.bookDescription"
-            required></textarea>
-            <button>Add new book</button>
-        </form>
-      `,
+      templateUrl: "js/new-book/components/template/new-book.template.html",
       controller: newBookController
     });
 
