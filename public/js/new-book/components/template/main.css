@@ -1,106 +1,200 @@
+body {
+	font: 14px sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.nav {
+	width: 100%;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	display: block;
+	background: #2196F3;
+	position: absolute;
+	top: 0;
+}
+
 #new-book-form {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+	width: 100%;
+	max-width: 900px;
+	margin: 30px auto;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
 }
 
 #new-book-form > div {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 #new-book-form > div > div {
-  margin: 5px 0 10px;
-  display: flex;
-  width: 400px;
-  justify-content: space-between;
+	display: flex;
+	width: 400px;
+	justify-content: space-between;
 }
 
 #new-book-form label {
-  width: 400px;
-  display: flex;
-  justify-content: space-between;
-  margin: 5px 0 10px;
+	width: 400px;
+	display: flex;
+	justify-content: space-between;
+	margin: 5px 0;
 }
 
-#new-book-form input {
-  padding: 0 5px 0 10px;
-  margin: 0;
-  height: 36px;
-  border: 2px solid #3e3;
-  width: 275px;
+#new-book-form input{
+	padding: 0 5px 0 10px;
+	margin: 0;
+	height: 36px;
+	border: 2px solid #90CAF9;
+	width: 275px;
 }
 
-#new-book-form textarea {
-  resize: none;
-  height: 200px;
-  width: 294px;
-  box-sizing: border-box;
-  border: 2px solid #3e3;
+#new-book-form textarea{
+	resize: none;
+	height: 200px;
+	width: 294px;
+	box-sizing: border-box;
+	border: 2px solid #90CAF9;
+	margin-top: 4px;
 }
+
 
 #new-book-form label {
-  height: 40px;
-  line-height: 40px;
+	height: 40px;
+	line-height: 40px;
 }
 
 #new-book-form [for="book-description"] {
-  width: 100px;
+	width: 100px;
 }
+
 
 image-uploader {
-  width: 400px;
-  height: 325px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+	width: 400px;
+	height: 325px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
-
 #dnd-container {
-  width: 200px;
-  height: 250px;
-  border: 2px dashed #333;
-  margin: 5px 0 0;
+	width: 200px;
+	height: 250px;
+	border: 2px dashed #333;
+	margin: 5px 0 0;
+	padding-top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 20px;
+	color: #2196F3;
+	text-align: center;
 }
 
 #new-book-form label[for="book-cover-select"] {
-  display: block;
-  width: 150px;
-  background: tomato;
-  color: white;
-  height: 35px;
-  line-height: 35px;
-  border-radius: 20px;
-  text-align: center;
+	display: block;
+	width: 150px;
+	background: #2196F3;
+	color: #fff;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 20px;
+	text-align: center;
+	cursor: pointer;
+	box-shadow: 0 4px 0 #1976D2;
 }
+
 
 #new-book-form input[type="file"] {
-  display: none;
-  position: absolute;
-  top: -100px;
+	opacity: 0;
+	position: absolute;
+	top: -300px;
+}
+
+#new-book-button {
+	background: #2196F3;
+	border-radius: 20px;
+	width: 220px;
+	height: 35px;
+	border: none;
+	outline: none;
+	box-shadow: 0 4px 0 #1976D2;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	position: absolute;
+	bottom: -30px;
+	left: 0;
+	right: 0;
+}
+
+#new-book-button:active,
+#new-book-form label[for="book-cover-select"]:active {
+	box-shadow: 0 1px 0 #1976D2;
+	transform: translateY(4px);
+}
+
+book-app {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+	margin-top: 50px;
+	background: #fff;
+}
+
+book-app:after {
+	content: "";
+	flex: auto;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.nav-click,
+.nav-back {
+	color: #fff;
+	text-decoration: none;
+	line-height: 50px;
+	font-size: 20px;
+	padding-left: 20px;
 }
 
 
+.nav-back {
+	margin: 0;
+	line-height: 50px;
+	display: block;
+	width: 80px;
+}
 
+.book-container {
+	margin: 0 15px;
+	width: 230px;
+	height: 400px;
+	position: relative;
+}
 
+.book-container img {
+	width: 100%;
+	height: 250px;
+	object-fit: contain;
+	justify-content: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.book-container h3 {
+	background: #64B5F6;
+	color: #000;
+	border-radius: 6px;
+	font-size: 18px;
+	line-height: 38px;
+	text-align: center;
+	font-weight: normal;
+}
